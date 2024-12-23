@@ -9,5 +9,5 @@
     - **Estimated Time**: 1–2 hours
 
 3. **Thread-safe Counter**
-    - **Description**: Create a thread-safe counter using `synchronized` or `Lock`.
+    - **Description**: Create a thread-safe counter.
     - **Estimated Time**: 1–2 hours
