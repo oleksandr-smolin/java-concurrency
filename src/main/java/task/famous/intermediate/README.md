@@ -16,17 +16,17 @@
 
 - You have five philosophers sitting at a circular table.
 - Between each pair of philosophers is one chopstick (or fork), making a total of five chopsticks.
-  - Each philosopher alternates between **thinking** and **eating**:
-      - **Thinking**: A philosopher does not need any chopsticks and spends a random amount of time thinking.
-      - **Eating**: A philosopher needs two chopsticks (the one on their left and the one on their right) and spends a
-        random amount of time eating.
-  - **Duration**:
-      - Each philosopher spends a random time (e.g., 1 to 3 seconds) on both thinking and eating.
-  - **Frequency**:
-      - Philosophers continuously alternate between thinking and eating in a loop.
-  - **Challenges**:
-      - No two philosophers eat simultaneously using the same chopstick.
-      - No philosopher starves (i.e., waits indefinitely to eat).
+    - Each philosopher alternates between **thinking** and **eating**:
+        - **Thinking**: A philosopher does not need any chopsticks and spends a random amount of time thinking.
+        - **Eating**: A philosopher needs two chopsticks (the one on their left and the one on their right) and spends a
+          random amount of time eating.
+    - **Duration**:
+        - Each philosopher spends a random time (e.g., 1 to 3 seconds) on both thinking and eating.
+    - **Frequency**:
+        - Philosophers continuously alternate between thinking and eating in a loop.
+    - **Challenges**:
+        - No two philosophers eat simultaneously using the same chopstick.
+        - No philosopher starves (i.e., waits indefinitely to eat).
 
 ---
 
@@ -65,16 +65,41 @@
 
 ---
 
-### 7. CountDownLatch: Batch Processing
+### 11. CountDownLatch: Race Simulation
 
-- **Scenario**: Simulate a batch processing system where multiple threads independently process data chunks, but the
-  main thread waits for all to complete.
-- **Why Use**: Ensures all subtasks finish before proceeding, without complex thread management.
-- **Requirements**:
-    1. Divide a task (e.g., processing 100,000 records) into 10 smaller batches.
-    2. Use a `CountDownLatch` initialized to 10.
-    3. Each thread processes its batch and decrements the latch upon completion.
-    4. The main thread waits on the latch and consolidates the results.
+- **Scenario**: Simulate a race where all racers start simultaneously and report their finish times.
+- **Why Use**: Ensures all racers begin at the same time and allows the main thread to wait for all to finish.
+
+#### **Requirements**:
+
+1. **Start Signal**:
+
+- Use a `CountDownLatch` initialized to `1` to ensure all racer threads start racing simultaneously when the latch count
+  reaches zero.
+
+2. **Finish Signal**:
+
+- Use another `CountDownLatch` initialized to the number of racers (e.g., `5`) to wait for all racers to finish the race
+  before proceeding.
+
+3. **Racer Threads**:
+
+- Each racer thread simulates racing by introducing a random delay (to represent varying speeds).
+- Threads record and report their finish times when they cross the finish line.
+
+4. **Main Thread**:
+
+- The main thread:
+    - Releases the `startSignal` to begin the race.
+    - Waits on the `finishSignal` for all racers to complete.
+    - Consolidates results and announces the winner.
+
+#### **Detailed Implementation**:
+
+1. Prepare `CountDownLatch` for both starting and finishing signals.
+2. Use threads to represent racers, each waiting on the start signal and racing with random delays.
+3. Record individual racer times for result tracking.
+4. Announce the winner based on the fastest time after all racers finish.
 
 ---
 
@@ -117,19 +142,7 @@
 
 ---
 
-### 11. CountDownLatch: Race Simulation
-
-- **Scenario**: Simulate a race where all racers start simultaneously and report their finish times.
-- **Why Use**: Ensures all racers begin at the same time and allows the main thread to wait for all to finish.
-- **Requirements**:
-    1. Create a `CountDownLatch` for the start signal.
-    2. Use another latch to wait for all racers to finish.
-    3. Each racer thread simulates racing (e.g., random delays).
-    4. The main thread announces the winner after all racers finish.
-
----
-
-### 12. CyclicBarrier: File Merge
+### 11. CyclicBarrier: File Merge
 
 - **Scenario**: Process chunks of a large file in parallel and synchronize results in stages.
 - **Why Use**: Ensures all threads complete their work before merging results iteratively.
@@ -141,7 +154,7 @@
 
 ---
 
-### 13. Phaser: Dynamic Party Registration
+### 12. Phaser: Dynamic Party Registration
 
 - **Scenario**: A multiplayer game where players dynamically join and leave during different stages (e.g., setup,
   gameplay, summary).

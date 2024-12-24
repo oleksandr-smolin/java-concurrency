@@ -28,5 +28,27 @@ This README outlines a structured list of concurrency programming tasks to help 
 | **`Synchronized`**            | A keyword to make methods or blocks thread-safe by acquiring intrinsic locks.                                    |
 | **`Thread-Safe Collections`** | Built-in collections like `ConcurrentHashMap`, `CopyOnWriteArrayList`, and `BlockingQueue` for concurrent access. |
 
+# Java Collections for Multithreading
+
+| **Collection**                 | **Description**                                                                                               |
+|--------------------------------|---------------------------------------------------------------------------------------------------------------|
+| **`ConcurrentHashMap`**        | A thread-safe implementation of `HashMap` that supports high concurrency with segment-based locking.          |
+| **`CopyOnWriteArrayList`**     | A thread-safe implementation of `ArrayList` that creates a new copy of the list on every modification.        |
+| **`CopyOnWriteArraySet`**      | A thread-safe implementation of `Set` backed by a `CopyOnWriteArrayList`.                                      |
+| **`BlockingQueue`**            | An interface for thread-safe queues that block on insertion or retrieval if the queue is full or empty.        |
+| **`LinkedBlockingQueue`**      | A thread-safe queue implemented as a linked list, optionally bounded.                                          |
+| **`ArrayBlockingQueue`**       | A thread-safe, bounded queue implemented as a fixed-size array.                                                |
+| **`PriorityBlockingQueue`**    | A thread-safe priority queue based on natural ordering or a comparator.                                        |
+| **`DelayQueue`**               | A thread-safe queue that holds elements until they are eligible for processing based on a delay.               |
+| **`SynchronousQueue`**         | A thread-safe queue where each insertion waits for a corresponding removal (and vice versa).                   |
+| **`Deque` (`ConcurrentLinkedDeque`)** | A thread-safe double-ended queue for concurrent access.                                                          |
+| **`ConcurrentLinkedQueue`**    | A thread-safe, unbounded queue implemented as a non-blocking linked list.                                       |
+| **`TreeMap` (with `synchronizedMap`)**| A sorted map wrapped with `Collections.synchronizedMap` for thread safety.                                   |
+| **`ThreadLocalRandom`**        | A thread-safe random number generator optimized for multithreaded environments.                                |
+| **`Atomic Classes`**           | Classes like `AtomicInteger`, `AtomicLong`, and `AtomicReference` for lock-free thread-safe operations.         |
+| **`Collections.synchronizedMap`** | A wrapper to make a regular map thread-safe by synchronizing access.                                          |
+| **`Collections.synchronizedList`** | A wrapper to make a regular list thread-safe by synchronizing access.                                         |
+
+
 
 
