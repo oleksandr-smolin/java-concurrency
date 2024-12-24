@@ -23,23 +23,14 @@
         - No two philosophers eat simultaneously using the same chopstick.
         - No philosopher starves (i.e., waits indefinitely to eat).
 
-
-3. ### **Deadlock Demonstration**
-    - **Description**: Create and resolve a deadlock scenario between two threads.
-    - **Estimated Time**: 2–3 hours
-
-4. ### **Read-Write Lock**
-    - **Description**: Implement a read-write lock mechanism for shared resources.
-    - **Estimated Time**: 3–4 hours
-
-5. ### **Matrix Multiplication**
+3. ### **Matrix Multiplication**
     - **Description**: Use multiple threads to compute matrix multiplication in parallel.
     - **Estimated Time**: 3–4 hours
 
-6. ### **Parallel Search**
+4. ### **Parallel Search**
     - **Description**: Search for an element in a large array using multiple threads.
     - **Estimated Time**: 2–3 hours
 
-7. ### **Word Count**
+5. ### **Word Count**
     - **Description**: Count word occurrences in a large text file using threads.
     - **Estimated Time**: 3–4 hours
