@@ -69,7 +69,7 @@
 
 ---
 
-### 9. Hotel Booking System
+### 10. Hotel Booking System
 - **Objective**: Simulate a hotel booking system where multiple threads reserve rooms concurrently.
 - **Key Techniques**:
    - Use `ReentrantLock` to synchronize room reservations.
