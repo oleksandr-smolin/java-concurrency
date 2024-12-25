@@ -166,3 +166,7 @@
     4. Allow 1 player to leave before the summary phase.
     5. Use `arriveAndAwaitAdvance` for synchronization.
 
+### 13. Multithreaded Sorting Algorithm
+- **Objective**: Implement a parallel merge sort.
+- **Key Techniques**:
+  - Use `ForkJoinPool` to divide and conquer the sorting process.
