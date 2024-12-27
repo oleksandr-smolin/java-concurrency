@@ -1,6 +1,7 @@
 package task.famous.advanced.task10;
 
 import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Worker implements Runnable {
 
@@ -16,10 +17,11 @@ public class Worker implements Runnable {
   public void run() {
     while (true) {
       Booking booking;
+
       try {
         booking = queue.take();
-        System.out.println(Thread.currentThread().getName() + "I'm processing Order: " + booking);
-        Thread.sleep((int)(Math.random() * 5000) + 1500);
+        System.out.println(Thread.currentThread().getName() + " I'm processing Order: " + booking);
+        ThreadLocalRandom.current().ints(500_000).forEach(num -> {});
       } catch (InterruptedException e) {
         throw new RuntimeException(e);
       }

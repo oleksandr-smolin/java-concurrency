@@ -19,6 +19,7 @@ import java.util.stream.Collectors;
 
 public class BookingHttpHandler implements HttpHandler {
   private static final Random RANDOM = new Random();
+  public static final String SUCCESS_ANSWER = "Thank you for you booking, your booking will be processed soon and you will see accepted booking in your account";
   private final BookingRepository bookingRepository;
   private final BlockingQueue<Booking> queue;
 
@@ -67,9 +68,8 @@ public class BookingHttpHandler implements HttpHandler {
       return ex.getMessage();
     }
 
-    String response = "Thank you for you booking, your booking will be processed soon and you will see accepted booking in your account";
-    exchange.sendResponseHeaders(HttpURLConnection.HTTP_OK, response.length());
-    return response;
+    exchange.sendResponseHeaders(HttpURLConnection.HTTP_OK, SUCCESS_ANSWER.length());
+    return SUCCESS_ANSWER;
   }
 
   private void pushTaskToProcessing(Booking booking) throws HighLoadException {

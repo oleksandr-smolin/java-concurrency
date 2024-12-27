@@ -1,6 +1,5 @@
 package task.famous.advanced.task10;
 
-import java.time.LocalDate;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
@@ -20,9 +19,9 @@ public class BookingRepository {
     final var random = new Random();
 
     List<Booking> alreadyRegisteredBookingList = List.of(
-        new Booking(random.nextInt(Integer.MAX_VALUE - 1), "Jack", 201, LocalDate.now().plusDays(33)),
-        new Booking(random.nextInt(Integer.MAX_VALUE - 1), "Sara", 123, LocalDate.now().plusDays(22)),
-        new Booking(random.nextInt(Integer.MAX_VALUE - 1), "Johny", 65, LocalDate.now().plusDays(7))
+//        new Booking(random.nextInt(Integer.MAX_VALUE - 1), "Jack", 201, LocalDate.now().plusDays(33)),
+//        new Booking(random.nextInt(Integer.MAX_VALUE - 1), "Sara", 123, LocalDate.now().plusDays(22)),
+//        new Booking(random.nextInt(Integer.MAX_VALUE - 1), "Johny", 65, LocalDate.now().plusDays(7))
     );
 
     alreadyRegisteredBookingList.forEach(booking -> BOOKING_MAP.put(booking.id(), booking));
@@ -38,5 +37,9 @@ public class BookingRepository {
 
   public void saveBooking(Booking booking) {
     BOOKING_MAP.put(booking.id(), booking);
+  }
+
+  public void clear() {
+    BOOKING_MAP.clear();
   }
 }

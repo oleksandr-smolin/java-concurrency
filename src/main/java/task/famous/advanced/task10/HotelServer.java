@@ -27,11 +27,13 @@ public class HotelServer {
     startServer(httpHandler);
   }
 
-  public static void startServer(HttpHandler httpHandler) throws IOException {
+  private static void startServer(HttpHandler httpHandler) throws IOException {
+    System.out.println("Starting server...");
     HttpServer server = HttpServer.create(new InetSocketAddress(8000), 0);
     server.createContext("/booking", httpHandler);
     var executor = Executors.newFixedThreadPool(NUMBER_OF_THREADS_FOR_CLIENT_REQUESTS);
     server.setExecutor(executor);
     server.start();
+    System.out.println("Server started");
   }
 }
