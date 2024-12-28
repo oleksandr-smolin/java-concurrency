@@ -25,6 +25,6 @@ public class PriceSimulator {
   public void start() {
     final var es = Executors.newFixedThreadPool(NUMBER_OF_THREADS);
     es.submit(new StockMarket(phaser, stockStateList));
-    IntStream.rangeClosed(0, NUMBER_OF_THREADS -1).forEach(i -> es.submit(new Subscriber(phaser, stockStateList)));
+    IntStream.range(0, NUMBER_OF_THREADS).forEach(i -> es.submit(new Subscriber(phaser, stockStateList)));
   }
 }

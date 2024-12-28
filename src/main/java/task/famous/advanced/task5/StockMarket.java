@@ -18,7 +18,7 @@ public class StockMarket implements Runnable {
 
   @Override
   public void run() {
-    while (!Thread.interrupted()) {
+    while (!Thread.currentThread().isInterrupted() && !phaser.isTerminated()) {
       Stock apple = new Stock(1, "Apple", new BigDecimal(ThreadLocalRandom.current().nextInt(1000)));
       Stock microsoft = new Stock(2, "Microsoft", new BigDecimal(ThreadLocalRandom.current().nextInt(1000)));
       Stock google = new Stock(3, "Google", new BigDecimal(ThreadLocalRandom.current().nextInt(1000)));
@@ -27,5 +27,6 @@ public class StockMarket implements Runnable {
       stockStateList.add(stockState);
       phaser.arriveAndAwaitAdvance();
     }
+    System.out.println("phaser.getPhase()" + phaser.getPhase());
   }
 }

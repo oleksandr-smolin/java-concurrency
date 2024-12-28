@@ -15,7 +15,7 @@ public class Subscriber implements Runnable {
 
   @Override
   public void run() {
-    while (true) {
+    while (!Thread.currentThread().isInterrupted() && !phaser.isTerminated()) {
       phaser.arriveAndAwaitAdvance();
       StockState stockState = stockStateList.get(phaser.getPhase() -1);
 

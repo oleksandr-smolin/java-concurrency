@@ -13,12 +13,10 @@ public class StockMarketTest {
 
   @Test
   void testStockMarketProduceStockStates() throws InterruptedException {
-    final List<StockState> stokStateList = Collections.synchronizedList(new ArrayList<>());
     final Phaser phaser = new Phaser(2);
+    final List<StockState> stockStateList = Collections.synchronizedList(new ArrayList<>());
 
-    final StockMarket stockMarket = new StockMarket(phaser, stokStateList);
-    final var threadThread = new Thread(stockMarket);
-    threadThread.start();
+    new Thread(new StockMarket(phaser, stockStateList)).start();
 
     final var subscriberThread = new Thread(() -> {
       while (phaser.getPhase() < 10)
@@ -27,6 +25,6 @@ public class StockMarketTest {
 
     subscriberThread.start();
     subscriberThread.join();
-    Assertions.assertEquals(11, stokStateList.size());
+    Assertions.assertEquals(11, stockStateList.size());
   }
 }
