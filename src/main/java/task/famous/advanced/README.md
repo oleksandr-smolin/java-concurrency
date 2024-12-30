@@ -133,3 +133,34 @@
    - Use `ReentrantLock` to synchronize seat allocations.
    - Handle overbooking scenarios gracefully.
 
+---
+
+### 15. Load Balancer System
+- **Objective**: Create a multithreaded application to simulate a load balancer that distributes incoming requests to backend servers.
+- **Requirements**:
+  - **Request Handling**:
+    - Simulate incoming requests using threads, with each request having a unique ID and payload.
+    - Requests should be processed by backend servers via the load balancer.
+  - **Backend Servers**:
+    - Simulate a fixed number of backend servers (e.g., 5 servers).
+    - Each server processes requests with a random delay (e.g., 50–500 ms).
+    - Servers may occasionally fail to process a request, simulating downtime.
+  - **Load Balancer Logic**:
+    - Implement the following request distribution strategies:
+      - **Round-Robin**: Assign requests sequentially to servers.
+      - **Least Connections**: Assign requests to the server with the fewest active requests.
+      - **Random**: Assign requests to servers randomly.
+  - **Concurrency Handling**:
+    - Use thread-safe mechanisms to distribute requests and manage server states (e.g., active connections).
+    - Ensure no race conditions during request assignment.
+  - **Error Handling**:
+    - Handle scenarios where servers fail to process requests by retrying or logging failures.
+  - **Metrics**:
+    - Track and display:
+      - Total number of requests processed.
+      - Number of requests processed by each server.
+      - Number of failed requests.
+      - Average processing time per request.
+- **Bonus**:
+  - Add a **health check mechanism** to exclude failing servers temporarily.
+  - Allow dynamic switching between load-balancing strategies at runtime.
