@@ -1,14 +1,15 @@
 package task.famous.advanced.task1;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class DataStoreTest {
 
@@ -21,7 +22,7 @@ public class DataStoreTest {
 
     boolean resultOfTransaction = dataStore.transfer(transferData);
 
-    Assertions.assertTrue(resultOfTransaction);
+    assertTrue(resultOfTransaction);
   }
 
   @Test
@@ -45,9 +46,32 @@ public class DataStoreTest {
     Map<Long, AccountDataEntity> accountDataEntityMap = dataStore.getAllAccounts();
 
 
-    Assertions.assertEquals(new BigDecimal("668.45"), accountDataEntityMap.get(1L).getBalance());
-    Assertions.assertEquals(new BigDecimal("419.79"), accountDataEntityMap.get(2L).getBalance());
-    Assertions.assertEquals(new BigDecimal("2877.11"), accountDataEntityMap.get(3L).getBalance());
+    assertEquals(new BigDecimal("668.45"), accountDataEntityMap.get(1L).getBalance());
+    assertEquals(new BigDecimal("419.79"), accountDataEntityMap.get(2L).getBalance());
+    assertEquals(new BigDecimal("2877.11"), accountDataEntityMap.get(3L).getBalance());
 
   }
+
+  @Test
+  void testHighConcurrency() {
+    var dataStore = DataStore.getInstance();
+
+    int iterationNum = 100;
+    int sumPerTransfer = 5;
+
+    var accountStates = dataStore.getAllAccounts();
+    final var account1InitSum = accountStates.get(1L).getBalance();
+    final var account2InitSum = accountStates.get(2L).getBalance();
+
+    try (ExecutorService es = Executors.newFixedThreadPool(10)) {
+      for (int i = 0; i < iterationNum; i++) {
+        es.submit(() -> dataStore.transfer(new TransferData(1, 2, new BigDecimal(sumPerTransfer))));
+      }
+    }
+
+    BigDecimal transferTotal = new BigDecimal(iterationNum * sumPerTransfer);
+    assertEquals(account1InitSum, accountStates.get(1L).getBalance().add(transferTotal));
+    assertEquals(account2InitSum, accountStates.get(2L).getBalance().subtract(transferTotal));
+  }
+
 }
