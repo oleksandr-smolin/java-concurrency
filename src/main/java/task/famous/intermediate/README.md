@@ -170,3 +170,121 @@
 - **Objective**: Implement a parallel merge sort.
 - **Key Techniques**:
   - Use `ForkJoinPool` to divide and conquer the sorting process.
+
+### 14. Background Task Cancellation
+- **Objective**: Run a background thread that performs a repetitive task, and cancel it using a shared flag.
+- **Key Techniques**:
+  - Use a `volatile` boolean flag for cancellation.
+  - Use `Thread.sleep()` and `isInterrupted()` for graceful exit.
+
+### 15. Bank Account with Locks
+- **Objective**: Simulate a shared bank account that supports concurrent deposits and withdrawals.
+- **Key Techniques**:
+  - Synchronize access with `ReentrantLock` or `synchronized`.
+  - Handle race conditions and overdraw scenarios.
+
+### 16. Multithreaded Merge Sort
+- **Objective**: Sort an array using merge sort, where recursive parts run in parallel.
+- **Key Techniques**:
+  - Split array into chunks and use threads to sort.
+  - Use `ExecutorService` for parallelism.
+
+### 17. Parallel Matrix Multiplication
+- **Objective**: Multiply two matrices in parallel by dividing computation across threads.
+- **Key Techniques**:
+  - Use row/column partitioning for threads.
+  - Combine results into a single matrix.
+
+### 18. Thread Communication with CompletableFuture
+- **Objective**: Use `CompletableFuture` to simulate inter-thread communication like `std::promise` and `std::future`.
+- **Key Techniques**:
+  - Chain tasks and handle results asynchronously.
+  - Combine multiple futures with `allOf()`.
+
+### 19. Measure Thread Execution Time
+- **Objective**: Track how long a thread takes to complete a task.
+- **Key Techniques**:
+  - Use `System.nanoTime()` or `Instant.now()` from `java.time`.
+  - Log start/end times and compute the difference.
+
+### 20. Bounded Blocking Queue
+- **Objective**: Implement a custom fixed-size queue with blocking behavior on full/empty conditions.
+- **Key Techniques**:
+  - Use `wait()` and `notifyAll()` for coordination.
+  - Protect access with `synchronized` methods.
+
+### 21. Thread Signaling with wait/notify
+- **Objective**: Signal between threads when a condition is met, similar to condition variables.
+- **Key Techniques**:
+  - Use `wait()` and `notify()` on a shared lock object.
+  - Demonstrate producer-consumer signaling.
+
+### 22. Producer-Consumer with BlockingQueue
+- **Objective**: Implement the producer-consumer pattern using `BlockingQueue`.
+- **Key Techniques**:
+  - Use `ArrayBlockingQueue` for buffer management.
+  - Handle multiple producers and consumers.
+
+### 23. Future and Callable Usage
+- **Objective**: Run a task in another thread and get the result using `Future`.
+- **Key Techniques**:
+  - Use `Callable<T>` and `ExecutorService.submit()`.
+  - Call `future.get()` to retrieve the result.
+
+### 24. Waiting for Multiple Tasks
+- **Objective**: Launch several tasks and wait until all are completed.
+- **Key Techniques**:
+  - Use `ExecutorService.invokeAll()` or track multiple `Future` objects.
+  - Collect all results.
+
+### 25. Dining Philosophers Problem
+- **Objective**: Simulate the classic concurrency problem to avoid deadlocks among philosophers.
+- **Key Techniques**:
+  - Use `ReentrantLock` or `Semaphore`.
+  - Avoid circular wait by ordering resource acquisition.
+
+### 26. Readers-Writers Problem
+- **Objective**: Allow multiple readers or one writer to access shared data concurrently.
+- **Key Techniques**:
+  - Use `ReentrantReadWriteLock`.
+  - Synchronize read/write access efficiently.
+
+### 27. Basic Thread Pool Implementation
+- **Objective**: Implement a minimal thread pool that takes and executes tasks.
+- **Key Techniques**:
+  - Use a task queue and worker threads.
+  - Use `wait()`/`notify()` for task availability.
+
+### 28. Thread-Safe Logger
+- **Objective**: Write a logger class that is safe to use across multiple threads.
+- **Key Techniques**:
+  - Use `synchronized` or `ReentrantLock`.
+  - Optionally buffer logs and flush periodically.
+
+### 29. Lock-Free Counter with AtomicInteger
+- **Objective**: Implement a counter that can be incremented concurrently without locks.
+- **Key Techniques**:
+  - Use `AtomicInteger` and its `incrementAndGet()` method.
+
+### 30. Atomic vs Synchronized Counter Comparison
+- **Objective**: Compare performance of a lock-based counter vs `AtomicInteger`.
+- **Key Techniques**:
+  - Benchmark under concurrent load.
+  - Measure throughput and contention.
+
+### 31. Thread Using Instance Method
+- **Objective**: Create and start a thread that runs an instance method of a class.
+- **Key Techniques**:
+  - Pass a lambda or method reference to the thread constructor.
+
+### 32. Thread-Local Variables
+- **Objective**: Provide data that is local to each thread using `ThreadLocal`.
+- **Key Techniques**:
+  - Use `ThreadLocal<T>` to store per-thread state.
+
+### 33. Countdown Timer with Thread
+- **Objective**: Implement a countdown timer that prints remaining time every second.
+- **Key Techniques**:
+  - Use `Thread.sleep(1000)` and a loop.
+  - Stop when time reaches zero.
+

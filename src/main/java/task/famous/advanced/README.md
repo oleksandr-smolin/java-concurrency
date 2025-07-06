@@ -164,3 +164,95 @@
 - **Bonus**:
   - Add a **health check mechanism** to exclude failing servers temporarily.
   - Allow dynamic switching between load-balancing strategies at runtime.
+
+### 16. Multithreaded File Downloader
+- **Objective**: Simulate a file download system that downloads different parts of a file in parallel and combines them.
+- **Key Techniques**:
+  - Use `ExecutorService` to manage worker threads.
+  - Divide file into byte ranges and simulate download with delays.
+  - Merge partial results safely.
+
+### 17. Thread-Safe Cache with Read/Write Lock
+- **Objective**: Implement a simple cache using `Map` that supports concurrent reads and synchronized writes.
+- **Key Techniques**:
+  - Use `ReentrantReadWriteLock` for optimized access.
+  - Support put/get operations from multiple threads.
+
+### 18. Parallel Web Crawler
+- **Objective**: Create a web crawler that explores URLs in parallel while avoiding re-visiting the same links.
+- **Key Techniques**:
+  - Use `ConcurrentHashMap` to track visited URLs.
+  - Use thread pool for crawling tasks.
+
+### 19. Thread-Safe Singleton
+- **Objective**: Implement the Singleton pattern with safe lazy initialization.
+- **Key Techniques**:
+  - Use `synchronized` block or double-checked locking.
+  - Ensure visibility with `volatile`.
+
+### 20. Multithreaded Chat Server (Simulation)
+- **Objective**: Simulate a chat room where multiple clients can send and receive messages concurrently.
+- **Key Techniques**:
+  - Use synchronized queues or `BlockingQueue`.
+  - Each client handled by a separate thread.
+
+### 21. Parallel Image Filter Application
+- **Objective**: Apply an image processing filter (like Gaussian blur) on an image using multiple threads.
+- **Key Techniques**:
+  - Split image into regions.
+  - Use threads to process regions in parallel and combine results.
+
+### 22. Work-Stealing Thread Pool
+- **Objective**: Simulate a thread pool with basic work-stealing behavior to balance load.
+- **Key Techniques**:
+  - Use `Deque` for each worker thread.
+  - Implement logic for idle threads to steal tasks.
+
+### 23. Task Scheduler with Priority Queue
+- **Objective**: Implement a simple task scheduler that runs tasks based on their priority.
+- **Key Techniques**:
+  - Use `PriorityBlockingQueue` or custom comparator.
+  - Worker threads poll and execute based on priority.
+
+### 24. Concurrent Ticket Booking System
+- **Objective**: Simulate a ticket booking system with limited tickets and multiple buyers.
+- **Key Techniques**:
+  - Use `ReentrantLock` to avoid overbooking.
+  - Handle failure cases when no tickets are available.
+
+### 25. Parallel Prime Number Finder
+- **Objective**: Find all prime numbers in a given range using multiple threads.
+- **Key Techniques**:
+  - Divide range into subranges.
+  - Use thread pool to process each subrange.
+  - Collect and merge results.
+
+### 26. Lock-Free Queue with Atomic Variables
+- **Objective**: Implement a simple non-blocking queue using `AtomicReference`.
+- **Key Techniques**:
+  - Use CAS (compare-and-set) to update head/tail.
+  - Avoid locks entirely.
+
+### 27. Thread-Safe Observer Pattern
+- **Objective**: Implement the observer pattern where observers can be added/removed concurrently.
+- **Key Techniques**:
+  - Use `CopyOnWriteArrayList` or synchronized blocks.
+  - Notify observers safely from multiple threads.
+
+### 28. Multithreaded Pipeline (Fetch -> Decode -> Process)
+- **Objective**: Create a three-stage pipeline with each stage handled by its own thread.
+- **Key Techniques**:
+  - Use `BlockingQueue` between pipeline stages.
+  - Ensure proper shutdown and flow control.
+
+### 29. Performance Comparison: Thread vs CompletableFuture
+- **Objective**: Compare performance and usability between raw `Thread` and `CompletableFuture`.
+- **Key Techniques**:
+  - Run same computation using both techniques.
+  - Measure execution time and resource usage.
+
+### 30. Deadlock Debugging Simulation
+- **Objective**: Write a program that intentionally causes a deadlock and analyze it.
+- **Key Techniques**:
+  - Use `ThreadMXBean` or logging to detect deadlock.
+  - Highlight importance of lock acquisition order.
