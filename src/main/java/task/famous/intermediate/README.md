@@ -63,38 +63,7 @@
     4. Otherwise, split the task into two parts, execute with `fork()` and combine with `join()`.
     5. Use `ForkJoinPool` to execute the task and return the result.
 
----
-
-### 11. CountDownLatch: Race Simulation
-
-- **Scenario**: Simulate a race where all racers start simultaneously and report their finish times.
-- **Why Use**: Ensures all racers begin at the same time and allows the main thread to wait for all to finish.
-
-#### **Requirements**:
-
-1. **Start Signal**:
-
-- Use a `CountDownLatch` initialized to `1` to ensure all racer threads start racing simultaneously when the latch count
-  reaches zero.
-
-2. **Finish Signal**:
-
-- Use another `CountDownLatch` initialized to the number of racers (e.g., `5`) to wait for all racers to finish the race
-  before proceeding.
-
-3. **Racer Threads**:
-
-- Each racer thread simulates racing by introducing a random delay (to represent varying speeds).
-- Threads record and report their finish times when they cross the finish line.
-
-4. **Main Thread**:
-
-- The main thread:
-    - Releases the `startSignal` to begin the race.
-    - Waits on the `finishSignal` for all racers to complete.
-    - Consolidates results and announces the winner.
-
-#### **Detailed Implementation**:
+#### 7. **Detailed Implementation**:
 
 1. Prepare `CountDownLatch` for both starting and finishing signals.
 2. Use threads to represent racers, each waiting on the start signal and racing with random delays.
