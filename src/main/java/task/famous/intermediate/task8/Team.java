@@ -4,7 +4,7 @@ import java.util.Deque;
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
 
-public class Team implements Runnable{
+class Team implements Runnable {
 
     public Team(Deque<String> stages, CyclicBarrier stageSynchronizer) {
         this.completedWorkStages = stages;
