@@ -1,4 +1,4 @@
-package task.famous.advanced.task1;
+package task.famous.advanced.task1.solution1;
 
 public class TransferService {
 
