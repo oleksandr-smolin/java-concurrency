@@ -1,4 +1,4 @@
-package task.famous.advanced.task15;
+package task.famous.advanced.task15.solution1;
 
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class LoadBalancer implements HttpHandler {
+class LoadBalancer implements HttpHandler {
 
   private final List<Server> servers;
   private final AtomicInteger counter = new AtomicInteger();

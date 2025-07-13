@@ -1,4 +1,4 @@
-package task.famous.advanced.task15;
+package task.famous.advanced.task15.solution1;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

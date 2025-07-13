@@ -1,6 +1,6 @@
-package task.famous.advanced.task15;
+package task.famous.advanced.task15.solution1;
 
-public class Request {
+class Request {
 
   private final long id;
   private final String params;

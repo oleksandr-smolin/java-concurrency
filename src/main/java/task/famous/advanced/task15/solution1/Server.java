@@ -1,10 +1,10 @@
-package task.famous.advanced.task15;
+package task.famous.advanced.task15.solution1;
 
 import java.util.Random;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
-public class Server implements Runnable {
+class Server implements Runnable {
 
   private final String serverName;
   private final BlockingQueue<Request> requests = new LinkedBlockingQueue<>();
