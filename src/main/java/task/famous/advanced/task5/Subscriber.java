@@ -3,7 +3,7 @@ package task.famous.advanced.task5;
 import java.util.List;
 import java.util.concurrent.Phaser;
 
-public class Subscriber implements Runnable {
+class Subscriber implements Runnable {
 
   private final Phaser phaser;
   private final List<StockState> stockStateList;

@@ -165,94 +165,144 @@
   - Add a **health check mechanism** to exclude failing servers temporarily.
   - Allow dynamic switching between load-balancing strategies at runtime.
 
-### 16. Multithreaded File Downloader
-- **Objective**: Simulate a file download system that downloads different parts of a file in parallel and combines them.
-- **Key Techniques**:
-  - Use `ExecutorService` to manage worker threads.
-  - Divide file into byte ranges and simulate download with delays.
-  - Merge partial results safely.
+### 📅 16. Booking System (Hotel / Meeting Room / Train Seats)
 
-### 17. Thread-Safe Cache with Read/Write Lock
-- **Objective**: Implement a simple cache using `Map` that supports concurrent reads and synchronized writes.
-- **Key Techniques**:
-  - Use `ReentrantReadWriteLock` for optimized access.
-  - Support put/get operations from multiple threads.
+* **Objective**: Develop a system to manage bookings, ensuring no resource conflicts or double-bookings occur.
+* **Requirements**:
 
-### 18. Parallel Web Crawler
-- **Objective**: Create a web crawler that explores URLs in parallel while avoiding re-visiting the same links.
-- **Key Techniques**:
-  - Use `ConcurrentHashMap` to track visited URLs.
-  - Use thread pool for crawling tasks.
+  * Implement objects to represent resources (`Room`, `TrainSeat`) and time slots.
+  * Allow concurrent booking requests.
+  * Utilize locks or thread-safe maps to avoid booking conflicts.
+  * Clearly handle edge cases, such as simultaneous booking requests.
+* **Key Techniques**:
 
-### 19. Thread-Safe Singleton
-- **Objective**: Implement the Singleton pattern with safe lazy initialization.
-- **Key Techniques**:
-  - Use `synchronized` block or double-checked locking.
-  - Ensure visibility with `volatile`.
+  * Concurrency management
+  * Object-oriented design
+  * Thread-safe data structures
 
-### 20. Multithreaded Chat Server (Simulation)
-- **Objective**: Simulate a chat room where multiple clients can send and receive messages concurrently.
-- **Key Techniques**:
-  - Use synchronized queues or `BlockingQueue`.
-  - Each client handled by a separate thread.
+### 🧾 17. Rate Limiter
 
-### 21. Parallel Image Filter Application
-- **Objective**: Apply an image processing filter (like Gaussian blur) on an image using multiple threads.
-- **Key Techniques**:
-  - Split image into regions.
-  - Use threads to process regions in parallel and combine results.
+* **Objective**: Implement algorithms to control request rates, preventing service overload.
+* **Requirements**:
 
-### 22. Work-Stealing Thread Pool
-- **Objective**: Simulate a thread pool with basic work-stealing behavior to balance load.
-- **Key Techniques**:
-  - Use `Deque` for each worker thread.
-  - Implement logic for idle threads to steal tasks.
+  * Develop Token Bucket and Leaky Bucket algorithms.
+  * Implement Sliding Window counters.
+  * Use in-memory caching.
+  * Ensure thread-safe data handling.
+* **Key Techniques**:
 
-### 23. Task Scheduler with Priority Queue
-- **Objective**: Implement a simple task scheduler that runs tasks based on their priority.
-- **Key Techniques**:
-  - Use `PriorityBlockingQueue` or custom comparator.
-  - Worker threads poll and execute based on priority.
+  * Token Bucket / Leaky Bucket algorithms
+  * Sliding window algorithm
+  * Thread-safe caching
 
-### 24. Concurrent Ticket Booking System
-- **Objective**: Simulate a ticket booking system with limited tickets and multiple buyers.
-- **Key Techniques**:
-  - Use `ReentrantLock` to avoid overbooking.
-  - Handle failure cases when no tickets are available.
+### 🧺 18. Thread-safe Queue or Bounded Buffer
 
-### 25. Parallel Prime Number Finder
-- **Objective**: Find all prime numbers in a given range using multiple threads.
-- **Key Techniques**:
-  - Divide range into subranges.
-  - Use thread pool to process each subrange.
-  - Collect and merge results.
+* **Objective**: Create a robust producer-consumer system with concurrency controls.
+* **Requirements**:
 
-### 26. Lock-Free Queue with Atomic Variables
-- **Objective**: Implement a simple non-blocking queue using `AtomicReference`.
-- **Key Techniques**:
-  - Use CAS (compare-and-set) to update head/tail.
-  - Avoid locks entirely.
+  * Utilize `BlockingQueue` to manage resource sharing.
+  * Implement `wait()` and `notify()` mechanisms.
+  * Apply semaphores for concurrency control.
+* **Key Techniques**:
 
-### 27. Thread-Safe Observer Pattern
-- **Objective**: Implement the observer pattern where observers can be added/removed concurrently.
-- **Key Techniques**:
-  - Use `CopyOnWriteArrayList` or synchronized blocks.
-  - Notify observers safely from multiple threads.
+  * Producer-consumer pattern
+  * Blocking mechanisms
+  * Semaphores
 
-### 28. Multithreaded Pipeline (Fetch -> Decode -> Process)
-- **Objective**: Create a three-stage pipeline with each stage handled by its own thread.
-- **Key Techniques**:
-  - Use `BlockingQueue` between pipeline stages.
-  - Ensure proper shutdown and flow control.
+### 📮 19. Messaging System (Pub/Sub)
 
-### 29. Performance Comparison: Thread vs CompletableFuture
-- **Objective**: Compare performance and usability between raw `Thread` and `CompletableFuture`.
-- **Key Techniques**:
-  - Run same computation using both techniques.
-  - Measure execution time and resource usage.
+* **Objective**: Build an asynchronous messaging system following the observer pattern.
+* **Requirements**:
 
-### 30. Deadlock Debugging Simulation
-- **Objective**: Write a program that intentionally causes a deadlock and analyze it.
-- **Key Techniques**:
-  - Use `ThreadMXBean` or logging to detect deadlock.
-  - Highlight importance of lock acquisition order.
+  * Allow message publishing and subscription.
+  * Ensure decoupling of message publishers and subscribers.
+  * Coordinate threads effectively to deliver messages asynchronously.
+* **Key Techniques**:
+
+  * Thread coordination
+  * Observer pattern
+  * Decoupling components
+
+### 🧾 20. Order Matching Engine (Stock Exchange)
+
+* **Objective**: Simulate a trading system to match buy and sell orders efficiently.
+* **Requirements**:
+
+  * Implement priority queues to manage order execution.
+  * Develop algorithms to match buy and sell orders.
+  * Ensure thread-safe execution under concurrent conditions.
+* **Key Techniques**:
+
+  * Priority queues
+  * Matching algorithms
+  * Thread safety
+
+### 🧾 21. In-Memory Key-Value Store
+
+* **Objective**: Develop a performant and reliable in-memory key-value store.
+* **Requirements**:
+
+  * Implement TTL (time-to-live) expiration for keys.
+  * Use `ConcurrentHashMap` for thread-safe operations.
+  * Schedule tasks to purge expired keys regularly.
+* **Key Techniques**:
+
+  * Concurrent data structures
+  * Scheduled tasks
+  * Data expiration logic
+
+### 🔍 22. Search Autocomplete
+
+* **Objective**: Create an efficient search autocomplete feature supporting asynchronous updates.
+* **Requirements**:
+
+  * Implement trie or prefix tree structures for rapid search suggestions.
+  * Develop ranking logic based on query frequency or relevancy.
+  * Ensure thread-safe reads and updates.
+* **Key Techniques**:
+
+  * Trie data structures
+  * Ranking algorithms
+  * Concurrent data handling
+
+### 🧮 23. Analytics Counter (Event Counter by Time Window)
+
+* **Objective**: Implement real-time event counting used in analytics and dashboards.
+* **Requirements**:
+
+  * Use sliding window algorithms to count events.
+  * Maintain rolling counters using atomic variables or ring buffers.
+  * Ensure accurate counts under high concurrency.
+* **Key Techniques**:
+
+  * Sliding window counting
+  * Atomic operations
+  * Concurrent data structures
+
+### 📊 24. Leaderboard System
+
+* **Objective**: Design a leaderboard capable of efficiently sorting, ranking, and updating scores concurrently.
+* **Requirements**:
+
+  * Use priority queues to maintain ranking.
+  * Manage concurrent updates and queries efficiently.
+  * Handle real-time data changes gracefully.
+* **Key Techniques**:
+
+  * Priority queue management
+  * Concurrency handling
+  * Efficient sorting and updates
+
+### 🔐 25. User Authentication System (simplified)
+
+* **Objective**: Build a basic user authentication service with secure session management.
+* **Requirements**:
+
+  * Implement stateless token-based authentication (JWT).
+  * Support user registration, login, and session management.
+  * Validate input securely and handle errors gracefully.
+* **Key Techniques**:
+
+  * Stateless JWT tokens
+  * RESTful API design
+  * Security best practices
