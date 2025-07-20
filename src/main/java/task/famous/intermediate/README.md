@@ -257,3 +257,19 @@
   - Use `Thread.sleep(1000)` and a loop.
   - Stop when time reaches zero.
 
+### 34. Blockchain Mining Simulation
+  - **Description**: Simulate mining blocks in a blockchain using threads.
+  - **Estimated Time**: 6–8 hours
+
+### 35. Parallel Image Processing
+  - **Description**: Process sections of an image (e.g., filters) in parallel.
+  - **Estimated Time**: 6–8 hours
+
+### 36. Concurrent MapReduce
+  - **Description**: Implement a simple MapReduce system with multithreading.
+  - **Estimated Time**: 6–8 hours
+
+### 37. Chat Server
+  - **Description**: Build a multithreaded chat server.
+  - **Estimated Time**: 6–8 hours
+
