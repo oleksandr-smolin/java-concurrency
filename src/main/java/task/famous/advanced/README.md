@@ -306,3 +306,22 @@
   * Stateless JWT tokens
   * RESTful API design
   * Security best practices
+
+### 🔓 26. Password Strength Testing Tool (Ethical Brute Force Simulator)
+
+* **Objective**: Build an educational tool that simulates brute-force and dictionary attacks to demonstrate how easily
+  weak passwords can be cracked. Use only in controlled environments for learning and testing purposes.
+
+* **Requirements**:
+  * Allow users to define a sample password and store its hash.
+  * Simulate a brute-force and dictionary-based attack on the hashed password.
+  * Measure and display the time and number of attempts needed to guess the password.
+  * Support common hashing algorithms (e.g. SHA-256, bcrypt, PBKDF2).
+  * Include safety mechanisms such as limited attempt thresholds and offline-only mode.
+
+* **Key Techniques**:
+  * Hashing algorithms and hash verification
+  * Brute-force and dictionary attack algorithms
+  * Efficient iteration and multithreading
+  * Input validation and reporting
+  * Secure and ethical coding practices
