@@ -2,9 +2,9 @@ package task.famous.advanced.task1.solution2;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-public class MoneyTransferService {
+class MoneyTransferService {
 
-    public void transferMoney(AccountTransfer accountTransfer) throws NotEnoughMoney {
+    void transferMoney(AccountTransfer accountTransfer) throws NotEnoughMoney {
         ThreadLocalRandom.current().ints(500_000).forEach(__ -> {}); // add some work for thread, don't make its life to easy :)
         validateSum(accountTransfer);
         accountTransfer.source().creditBalance(accountTransfer.amount());
