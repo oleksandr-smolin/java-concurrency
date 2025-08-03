@@ -325,3 +325,23 @@
   * Efficient iteration and multithreading
   * Input validation and reporting
   * Secure and ethical coding practices
+
+### 💰 27. Thread-Safe Bank Account: Deposit & Withdraw
+
+* **Objective**: Implement a basic bank account class that supports thread-safe deposit and withdrawal operations.
+* This exercise focuses on concurrency control, correctness, and safe monetary calculations in a fintech context.
+
+* **Requirements**:
+  * Represent the account balance using `BigDecimal` for precise monetary values.
+  * Implement `deposit(BigDecimal amount)` and `withdraw(BigDecimal amount)` methods.
+  * Ensure thread-safety for concurrent deposits and withdrawals using locking mechanisms.
+  * Prevent overdrafts by rejecting withdrawal attempts that exceed the current balance.
+  * Optionally maintain a log of all successful transactions.
+
+* **Key Techniques**:
+  * Thread-safety with `synchronized`, `ReentrantLock`, or `StampedLock`
+  * Atomic operations and race condition prevention
+  * Correct usage of `BigDecimal` for financial operations
+  * Optional: transaction logging and idempotency handling
+  * Optional: concurrency testing with `ExecutorService`
+
